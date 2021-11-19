@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="another.me.com.segway.remote.phone">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/anotherme"
+        android:label="Another Me"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+        <activity
+            android:name="another.me.com.segway.remote.phone.MainActivity"
+            android:label="Another Me"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="another.me.com.segway.remote.phone.NavigationActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="Another Me Loomo Robot"
+            android:screenOrientation="landscape"/>
+
+        <meta-data
+            android:name="robotEndpoint"
+            android:value="another.me.com.segway.remote.robot" ></meta-data>
+
+        <service
+            android:name="another.me.com.segway.remote.phone.service.ConnectionService"
+            android:enabled="true"
+            android:exported="false"></service>
+    </application>
+
+</manifest>

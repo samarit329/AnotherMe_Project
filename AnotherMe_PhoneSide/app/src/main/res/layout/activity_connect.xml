@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D8EFED"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/intro_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Please Enter Robot's IP Address Here:"
+        android:textAlignment="center"
+        android:textColor="#070707"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/ip_input"
+        android:layout_width="554dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/intro_text"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="139dp"
+        android:paddingTop="50px" />
+
+    <Button
+        android:id="@+id/button_connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ip_input"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="471dp"
+        android:backgroundTint="#050505"
+        android:onClick="connectToRobot"
+        android:text="Connect"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/button_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_connect"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-49dp"
+        android:layout_marginEnd="322dp"
+        android:backgroundTint="#040404"
+        android:onClick="skipToController"
+        android:text="Skip"
+        android:textColor="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_connect"
+        android:layout_marginTop="-54dp"
+        app:srcCompat="@drawable/logo_transparent" />
+
+</RelativeLayout>
