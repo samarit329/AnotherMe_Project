@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/back_connect"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D8EFED"
@@ -15,7 +16,7 @@
         android:text="Welcom To Another Me "
         android:textAlignment="center"
         android:textColor="#0C0C0C"
-        android:textSize="50dp" />
+        android:textSize="40dp" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -24,4 +25,6 @@
         android:layout_below="@+id/textView"
         android:layout_marginTop="62dp"
         app:srcCompat="@drawable/logo_transparent" />
+
+
 </RelativeLayout>

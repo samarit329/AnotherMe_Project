@@ -3,6 +3,7 @@
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:costom="http://schemas.android.com/tools"
     android:background="#D8EFED"
     android:orientation="vertical">
 
@@ -23,13 +24,13 @@
             android:layout_height="140dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="2dp"
             android:layout_marginBottom="5dp"
-            custom:JV_backgroundColor="#C3C8C8"
+            android:background="@drawable/linearrow1"
             custom:JV_borderColor="#A6434545"
-            custom:JV_borderWidth="5dp"
+            custom:JV_borderWidth="2dp"
             custom:JV_buttonColor="#A6434545"
             custom:JV_buttonImage="@drawable/h_letter"
             custom:JV_fixedCenter="true" />
@@ -38,19 +39,42 @@
             android:id="@+id/joystick_head_yaw"
             android:layout_width="150dp"
             android:layout_height="140dp"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginRight="1dp"
-            android:layout_marginBottom="1dp"
-            custom:JV_backgroundColor="#C3C8C8"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="577dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/linearrow"
             custom:JV_borderColor="#A6434545"
-            custom:JV_borderWidth="5dp"
+            custom:JV_borderWidth="2dp"
             custom:JV_buttonColor="#A6434545"
             custom:JV_buttonImage="@drawable/h_letter"
             custom:JV_fixedCenter="true" />
+
+        <Button
+            android:id="@+id/stopH"
+            android:layout_width="66dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="205dp"
+            android:layout_marginBottom="23dp"
+            android:background="@drawable/yyyy"
+            android:text="Stop" />
+
+        <Button
+            android:id="@+id/startH"
+            android:layout_width="56dp"
+            android:layout_height="45dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="212dp"
+            android:layout_marginBottom="27dp"
+            android:background="@drawable/xxxxx"
+            android:text="Start" />
 
 
     </RelativeLayout>

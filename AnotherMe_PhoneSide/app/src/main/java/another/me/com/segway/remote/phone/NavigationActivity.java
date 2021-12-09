@@ -18,8 +18,12 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import another.me.com.segway.remote.phone.fragment.HeadControl;
 import another.me.com.segway.remote.phone.fragment.HomePage;
+import another.me.com.segway.remote.phone.fragment.Logout;
+import another.me.com.segway.remote.phone.fragment.VideoStreamer;
 import another.me.com.segway.remote.phone.fragment.base.FragmentSelecter;
+import another.me.com.segway.remote.phone.fragment.base.JoyStickControllerFragment;
 import another.me.com.segway.remote.phone.fragment.base.RemoteFragmentInterface;
 import another.me.com.segway.remote.phone.service.ConnectionCallback;
 import another.me.com.segway.remote.phone.service.ConnectionService;
@@ -30,7 +34,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
     private static final String TAG = NavigationActivity.class.getName();
 
     private Toolbar toolbar = null;
-
+    Logout out = new Logout();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,11 +59,16 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         if (currentFragment == null) {
             getFragmentManager().beginTransaction().replace(R.id.content_frame, new HomePage()).commit();
         }
+
+
     }
+
 // handle callbacks
     @Override
     public void onBackPressed() {
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -72,10 +81,12 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-// when click logout close the app
+
+        // when click logout close the app
         if (id == R.id.logout) {
-            super.finish();
+           out.log();
         }
+
         // set view when choose fragment from navigation menu
         RemoteFragmentInterface fragment = FragmentSelecter.getFragment(this, id);
         getFragmentManager().beginTransaction().replace(R.id.content_frame, (Fragment) fragment).commit();
@@ -131,10 +142,12 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
 
     @Override
     public void onDisconnected() {
+
         Log.d(TAG, "onDisconnected called");
         finish();
-        }
+        System.exit(0);
 
+        }
 
     // Clean up the program
     @Override
@@ -144,4 +157,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         ConnectionService.getInstance().unregisterCallback(NavigationActivity.this);
         unbindService(serviceConnection);
     }
-}
+
+
+
+}//end class

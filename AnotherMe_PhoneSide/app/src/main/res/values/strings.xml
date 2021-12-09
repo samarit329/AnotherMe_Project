@@ -5,9 +5,14 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <string name="head_fragment_mode_button_smooth">Smooth</string>
+    <string name="head_fragment_mode_button_orientation">Orientation</string>
+
+
     <string name="navigation_fragment_title_raw">Home</string>
 
     <string name="navigation_fragment_title_vision">Video Stream</string>
+    <string name="navigation_fragment_title_head">Head Control</string>
 
 
 </resources>

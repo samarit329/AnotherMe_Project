@@ -8,8 +8,10 @@ public class Logout extends RemoteFragment {
 
 
     public void log() {
+
+        // creat log message to send it to the robot so terminate the application
         String[] message = {"exit", "exit"};
-        getLoomoService().send(CommandStringFactory.getStringMessage(message));
+        getLoomoService().send(CommandStringFactory.getStringMessage(message));//send message to the robot
 
     }
 

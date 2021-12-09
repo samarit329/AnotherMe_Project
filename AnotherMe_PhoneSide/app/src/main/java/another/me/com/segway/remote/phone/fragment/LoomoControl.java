@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 
@@ -29,6 +30,9 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
     private JoystickView joyDirection;
     private JoystickView joyHeadPitch;
     private JoystickView joyHeadYaw;
+
+    Button stopF;
+    Button startF;
 
 
     @Override
@@ -55,6 +59,29 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
         joyHeadYaw.setOnTouchListener(MovementListenerFactory.getJoyStickReleaseListener(this, MovementListenerFactory.JOYSTICK_YAW));
 
 
+
+
+        // Stop stream button
+        stopF=layout.findViewById(R.id.stopF);
+        stopF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                stopStreamF();
+            }
+        });//end Listener
+       //end onClickListener
+
+        //Start stream button
+        startF=layout.findViewById(R.id.startF);
+        startF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                startStreamF();
+            }
+        });//end Listener
+        //end onClickListener
+
+        //send start stream video when enter the page
         Log.d(TAG, "sending vision start");
         String[] message = {"vision", "start"};
         getLoomoService().send(CommandStringFactory.getStringMessage(message));
@@ -64,6 +91,7 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
     }
 
     @Override
+    //stop stream
     public void onPause() {
         super.onPause();
         Log.d(TAG, "sending vision stop");
@@ -72,6 +100,24 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
         getLoomoService().send(CommandStringFactory.getStringMessage(message));
     }
 
+
+    // stop stream method for the stop button
+    public void stopStreamF(){
+
+        Log.d(TAG, "sending vision stop");
+        getLoomoService().unregisterByteMessageReceiver(this);
+        String[] message = {"vision", "end"};
+        getLoomoService().send(CommandStringFactory.getStringMessage(message));
+    }
+    // start stream method for the start button
+    public void startStreamF() {
+        Log.d(TAG, "sending vision start");
+        String[] message = {"vision", "start"};
+        getLoomoService().send(CommandStringFactory.getStringMessage(message));
+        getLoomoService().registerByteMessageReceiver(this);
+    }
+
+    // Handle the received image and display it
     @Override
     public void handleByteMessage(final byte[] message) {
         getActivity().runOnUiThread(new Runnable() {

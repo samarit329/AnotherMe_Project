@@ -1,4 +1,4 @@
-package another.me.com.segway.remote.phone;
+package another.me.com.segway;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("another.me.com.segway.remote.phone", appContext.getPackageName());
+        assertEquals("de.iteratec.slab.segwaytest", appContext.getPackageName());
     }
 }

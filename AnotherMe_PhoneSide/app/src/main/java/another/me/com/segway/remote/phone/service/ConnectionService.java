@@ -39,6 +39,7 @@ public class ConnectionService extends Service {
     private boolean connectionSkipped = false;// to change to true when call setConnectionSkipped method
 
     public boolean isConnectionSkipped() {
+
         return connectionSkipped;
     }
 
@@ -60,7 +61,7 @@ public class ConnectionService extends Service {
         return instance;
     }
 
-
+    //Send messages to the specific robot applications(Another Me in the robot side)
     public void send(Message message) {
         if (connectionSkipped) {
             Log.d(TAG, "Connection was skipped");

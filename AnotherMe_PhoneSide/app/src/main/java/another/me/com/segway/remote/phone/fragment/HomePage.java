@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import another.me.com.segway.remote.phone.R;
 import another.me.com.segway.remote.phone.fragment.base.RemoteFragmentInterface;
@@ -13,12 +14,13 @@ import another.me.com.segway.remote.phone.service.ConnectionService;
 // home page class (second main UI)
 
 public class HomePage extends Fragment implements RemoteFragmentInterface {
-    private static final String TAG = "HomePageFragment";
+    private static final String TAG = "RawControlFragment";
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View homePage = inflater.inflate(R.layout.fragment_homepage, container, false);
+
 
 
         return homePage;

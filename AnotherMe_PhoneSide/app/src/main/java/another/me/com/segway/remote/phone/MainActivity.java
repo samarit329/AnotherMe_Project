@@ -1,5 +1,6 @@
 package another.me.com.segway.remote.phone;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -22,12 +23,16 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
     private ConnectionService connectionService;
     private EditText ipAddress;
 
+
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect);
         ipAddress = (EditText) findViewById(R.id.ip_input);
-    }
+
+    }// end on create
+
 
     @Override
     protected void onStart() {
@@ -40,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
         bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
     }
 
+
     @Override
     protected void onDestroy() {
         // When call the finish() method
@@ -47,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
         connectionService.unregisterCallback(this);
         unbindService(serviceConnection);
     }
+
 
     // Defines callbacks for service binding, that passed to bindService()
     private ServiceConnection serviceConnection = new ServiceConnection() {
@@ -80,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
     public void onDisconnected() {
         //implement onDisconnected(), it called when the service between the robot and mobile application is disconnected.
         try {
-            Toast.makeText(connectionService, "Disconnected from Loomo", Toast.LENGTH_LONG).show();
+            Toast.makeText(connectionService, "Disconnected from Loomo", Toast.LENGTH_SHORT).show();
         } catch (RuntimeException ignored) {
 
         }
@@ -92,13 +99,12 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
 
         if (serviceConnection == null) {
             //if there is no service connection
-            Toast.makeText(connectionService, "Service is null", Toast.LENGTH_LONG).show();
+            Toast.makeText(connectionService, "Service is null", Toast.LENGTH_SHORT).show();
         } else {
             // if there is service connection call connectToRobot method in ConnectionService class and send the IP address that the user enter as parameter
             connectionService.setIpConnection(ipAddress.getText().toString().trim());
         }
     }
-
 
 
     public void skipToController(View view) {
@@ -108,5 +114,6 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
         Intent intent = new Intent(this, NavigationActivity.class);
         startActivity(intent);
     }
+
 
 }//end class

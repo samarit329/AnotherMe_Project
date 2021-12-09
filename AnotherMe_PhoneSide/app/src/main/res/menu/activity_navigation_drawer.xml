@@ -3,16 +3,34 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/home_page"
+            android:id="@+id/raw_control"
             android:title="Home" />
+        <item
+            android:id="@+id/loomo_control"
+            android:title="Full Control" />
 
         <item
-            android:id="@+id/video_stream"
+            android:id="@+id/vision"
             android:title="Video Stream" />
 
         <item
+            android:id="@+id/head_control"
+            android:title="Head Control" />
+
+        <item
+            android:id="@+id/body_control"
+            android:title="Body Control" />
+
+        <item
+            android:id="@+id/backConnect"
+            android:title="Back To Connect" />
+
+        <item
             android:id="@+id/logout"
-            android:title="Logout" />
+            android:title="Exit" />
+
+
+
     </group>
 
 </menu>

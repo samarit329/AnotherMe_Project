@@ -1,4 +1,4 @@
-package another.me.com.segway.remote.phone;
+package another.me.com.segway;
 
 import org.junit.Test;
 

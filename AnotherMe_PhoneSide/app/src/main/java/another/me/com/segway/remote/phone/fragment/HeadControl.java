@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import another.me.com.segway.remote.phone.R;
@@ -24,6 +25,8 @@ public class HeadControl extends JoyStickControllerFragment implements ByteMessa
     private ImageView imageView;
     private JoystickView joyHeadPitch;
     private JoystickView joyHeadYaw;
+    Button stopH;
+    Button startH;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -31,7 +34,7 @@ public class HeadControl extends JoyStickControllerFragment implements ByteMessa
 
         View layout = inflater.inflate(R.layout.head_control, container, false);
         imageView = layout.findViewById(R.id.image_stream_h);
-        // imageView=handleByteMessage();
+
 
         joyHeadPitch = layout.findViewById(R.id.joystick_head_pitch);
         joyHeadYaw = layout.findViewById(R.id.joystick_head_yaw);
@@ -45,6 +48,30 @@ public class HeadControl extends JoyStickControllerFragment implements ByteMessa
         joyHeadYaw.setOnTouchListener(MovementListenerFactory.getJoyStickReleaseListener(this, MovementListenerFactory.JOYSTICK_YAW));
 
 
+
+        // Stop stream button
+        stopH=layout.findViewById(R.id.stopH);
+        stopH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                stopStreamH();
+            }
+        });//end onClickListener
+
+
+        //Start stream button
+        startH=layout.findViewById(R.id.startH);
+        startH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                startStreamH();
+            }
+        });//end onClickListener
+
+
+
+
+        //send start stream video when enter the page
        Log.d(TAG, "sending vision start");
         String[] message = {"vision", "start"};
         getLoomoService().send(CommandStringFactory.getStringMessage(message));
@@ -54,7 +81,7 @@ public class HeadControl extends JoyStickControllerFragment implements ByteMessa
     }
 
 
-
+    //stop strem
     @Override
    public void onPause() {
        super.onPause();
@@ -64,6 +91,29 @@ public class HeadControl extends JoyStickControllerFragment implements ByteMessa
       getLoomoService().send(CommandStringFactory.getStringMessage(messageh));
     }
 
+
+    // stop stream method for the stop button
+    public void stopStreamH(){
+
+        Log.d(TAG, "sending vision stop");
+        getLoomoService().unregisterByteMessageReceiver(this);
+        String[] message = {"vision", "end"};
+        getLoomoService().send(CommandStringFactory.getStringMessage(message));
+    }
+
+
+    // start stream method for the start button
+    public void startStreamH() {
+        Log.d(TAG, "sending vision start");
+        String[] message = {"vision", "start"};
+        getLoomoService().send(CommandStringFactory.getStringMessage(message));
+        getLoomoService().registerByteMessageReceiver(this);
+    }
+
+
+
+
+    // Handle the received image and display it
     @Override
     public void handleByteMessage(final byte[] message) {
         getActivity().runOnUiThread(new Runnable() {
@@ -76,5 +126,5 @@ public class HeadControl extends JoyStickControllerFragment implements ByteMessa
     }
 
 
-}
+}//end class
 

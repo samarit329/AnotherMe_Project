@@ -28,9 +28,9 @@
             android:layout_marginTop="1dp"
             android:layout_marginEnd="1dp"
             android:layout_marginBottom="1dp"
-            custom:JV_backgroundColor="#C3C8C8"
+            android:background="@drawable/linearrow1"
             custom:JV_borderColor="#A6434545"
-            custom:JV_borderWidth="5dp"
+            custom:JV_borderWidth="2dp"
             custom:JV_buttonColor="#A6434545"
             custom:JV_buttonImage="@drawable/b_letter"
             custom:JV_fixedCenter="true" />
@@ -46,13 +46,35 @@
             android:layout_marginEnd="1dp"
             android:layout_marginRight="1dp"
             android:layout_marginBottom="1dp"
-            custom:JV_backgroundColor="#C3C8C8"
+            android:background="@drawable/linearrow"
             custom:JV_borderColor="#A6434545"
-            custom:JV_borderWidth="5dp"
+            custom:JV_borderWidth="2dp"
             custom:JV_buttonColor="#A6434545"
             custom:JV_buttonImage="@drawable/b_letter"
             custom:JV_fixedCenter="true" />
 
+
+        <Button
+            android:id="@+id/stopB"
+            android:layout_width="66dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="205dp"
+            android:layout_marginBottom="23dp"
+            android:background="@drawable/yyyy"
+            android:text="Stop" />
+
+        <Button
+            android:id="@+id/startB"
+            android:layout_width="56dp"
+            android:layout_height="45dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="212dp"
+            android:layout_marginBottom="27dp"
+            android:background="@drawable/xxxxx"
+            android:text="Start" />
 
     </RelativeLayout>
 
