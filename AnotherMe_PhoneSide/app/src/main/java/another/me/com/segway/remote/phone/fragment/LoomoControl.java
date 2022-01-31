@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import another.me.com.segway.remote.phone.R;
 import another.me.com.segway.remote.phone.fragment.base.JoyStickControllerFragment;
 import another.me.com.segway.remote.phone.service.ByteMessageReceiver;
+import another.me.com.segway.remote.phone.service.ConnectionService;
 import another.me.com.segway.remote.phone.util.CommandStringFactory;
 import another.me.com.segway.remote.phone.util.MovementListenerFactory;
 
@@ -37,6 +38,9 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+
+
         View layout = inflater.inflate(R.layout.loomo_control, container, false);
         imageView = layout.findViewById(R.id.image_stream_l);
 
@@ -48,9 +52,13 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
 
 
 
+
         joySpeed.setOnMoveListener(MovementListenerFactory.getJoystickMoveListener(this, MovementListenerFactory.JOYSTICK_SPEED));
+
         joyDirection.setOnMoveListener(MovementListenerFactory.getJoystickMoveListener(this, MovementListenerFactory.JOYSTICK_DIRECTION));
+
         joyHeadPitch.setOnMoveListener(MovementListenerFactory.getJoystickMoveListener(this, MovementListenerFactory.JOYSTICK_PITCH));
+
         joyHeadYaw.setOnMoveListener(MovementListenerFactory.getJoystickMoveListener(this, MovementListenerFactory.JOYSTICK_YAW));
 
         joySpeed.setOnTouchListener(MovementListenerFactory.getJoyStickReleaseListener(this, MovementListenerFactory.JOYSTICK_SPEED));

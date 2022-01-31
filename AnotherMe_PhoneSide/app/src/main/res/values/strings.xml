@@ -13,6 +13,9 @@
 
     <string name="navigation_fragment_title_vision">Video Stream</string>
     <string name="navigation_fragment_title_head">Head Control</string>
+    <string name="navigation_fragment_title_tts">Text to Speech</string>
+    <string name="navigation_fragment_title_emoji">Emojis</string>
+    <string name="navigation_fragment_title_settings">Settings</string>
 
 
 </resources>

@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import another.me.com.segway.remote.phone.fragment.EmojiController;
 import another.me.com.segway.remote.phone.fragment.HeadControl;
 import another.me.com.segway.remote.phone.fragment.HomePage;
 import another.me.com.segway.remote.phone.fragment.Logout;
@@ -27,6 +28,7 @@ import another.me.com.segway.remote.phone.fragment.base.JoyStickControllerFragme
 import another.me.com.segway.remote.phone.fragment.base.RemoteFragmentInterface;
 import another.me.com.segway.remote.phone.service.ConnectionCallback;
 import another.me.com.segway.remote.phone.service.ConnectionService;
+import another.me.com.segway.remote.phone.util.CommandStringFactory;
 
 public class NavigationActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, ConnectionCallback {
 
@@ -53,6 +55,8 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
 
         // set initial fragment if none is set
         Fragment currentFragment = getFragmentManager().findFragmentById(R.id.content_frame);
@@ -91,6 +95,10 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         RemoteFragmentInterface fragment = FragmentSelecter.getFragment(this, id);
         getFragmentManager().beginTransaction().replace(R.id.content_frame, (Fragment) fragment).commit();
         toolbar.setTitle(fragment.getTitle());
+
+        //Force hiding Emojis  screen
+        String[] message1 = {"settings", EmojiController.KEY_EMOJI, "false"};
+        ConnectionService.getInstance().send(CommandStringFactory.getStringMessage(message1));
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

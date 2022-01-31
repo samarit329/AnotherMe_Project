@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D8EFED"
+    android:orientation="vertical">
+
+
+
+    <EditText
+        android:id="@+id/speech_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100px"
+        android:hint="Enter text"
+        android:textColorLink="#FFFFFF" />
+
+
+    <Button
+        android:id="@+id/sound_test"
+        android:layout_width="144dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="2000px"
+        android:layout_marginTop="50px"
+        android:backgroundTint="#0A0B0B"
+        android:text="Send"
+        android:textColor="#FFFFFF" />
+
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="281dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50px"
+        android:layout_marginTop="40px"
+        android:text="Emojis"
+        android:textColor="#000000"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:id="@+id/emoji_layout_1"
+        android:layout_width="725dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="500px"
+        android:layout_marginTop="0px">
+
+        <Button
+            android:id="@+id/emoji_look_around"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="60px"
+            android:backgroundTint="#009688"
+            android:onClick="sendCommand"
+            android:tag="look_around"
+            android:text="Look Around"
+            android:textColor="#FFFFFF"
+
+            />
+
+
+        <Button
+            android:id="@+id/emoji_look_comfort"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="200px"
+            android:backgroundTint="#009688"
+            android:onClick="sendCommand"
+            android:tag="look_comfort"
+            android:text="Agree"
+            android:textColor="#FFFFFF" />
+
+
+        <Button
+            android:id="@+id/emoji_look_curious"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="-150px"
+            android:layout_marginRight="200px"
+            android:backgroundTint="#009688"
+            android:onClick="sendCommand"
+            android:tag="look_curious"
+            android:text="Curious"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/emoji_look_no"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="-150px"
+            android:backgroundTint="#009688"
+            android:onClick="sendCommand"
+            android:tag="look_no"
+            android:text="Disagree"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/emoji_layout_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="500px"
+        android:layout_marginTop="0px">
+
+        <Button
+            android:id="@+id/emoji_look_up"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="60px"
+            android:backgroundTint="#009688"
+            android:onClick="sendCommand"
+            android:tag="look_up"
+            android:text="Look up"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/emoji_look_down"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="200px"
+            android:backgroundTint="#009688"
+            android:onClick="sendCommand"
+            android:tag="look_down"
+            android:text="Look down"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/emoji_look_left"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="-150px"
+            android:layout_marginRight="200px"
+            android:backgroundTint="#009688"
+            android:onClick="sendCommand"
+            android:tag="look_left"
+            android:text="Look left"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/emoji_look_right"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="-150px"
+            android:backgroundTint="#009688"
+            android:onClick="sendCommand"
+            android:tag="look_right"
+            android:text="Look right"
+            android:textColor="#FFFFFF" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/emoji_layout_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="500px"
+        android:layout_marginTop="0px">
+
+        <Button
+            android:id="@+id/emoji_turn_around"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="45px"
+            android:backgroundTint="#009688"
+            android:onClick="sendCommand"
+            android:tag="turn_around"
+            android:text="Turn around"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/emoji_turn_full"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="200px"
+            android:backgroundTint="#009688"
+            android:onClick="sendCommand"
+            android:tag="turn_full"
+            android:text="Turn full"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/emoji_turn_left"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="-150px"
+            android:layout_marginRight="200px"
+            android:backgroundTint="#009688"
+            android:onClick="sendCommand"
+            android:tag="turn_left"
+            android:text="Turn left"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/emoji_turn_right"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="-150px"
+            android:backgroundTint="#009688"
+            android:onClick="sendCommand"
+            android:tag="turn_right"
+            android:text="Turn right"
+            android:textColor="#FFFFFF" />
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

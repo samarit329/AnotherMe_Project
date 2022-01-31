@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import another.me.com.segway.remote.phone.R;
 import another.me.com.segway.remote.phone.fragment.base.JoyStickControllerFragment;
 import another.me.com.segway.remote.phone.service.ByteMessageReceiver;
+import another.me.com.segway.remote.phone.service.ConnectionService;
 import another.me.com.segway.remote.phone.util.CommandStringFactory;
 import another.me.com.segway.remote.phone.util.MovementListenerFactory;
 import io.github.controlwear.virtual.joystick.android.JoystickView;
@@ -30,6 +31,7 @@ public class HeadControl extends JoyStickControllerFragment implements ByteMessa
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
 
 
         View layout = inflater.inflate(R.layout.head_control, container, false);
