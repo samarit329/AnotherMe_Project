@@ -95,7 +95,11 @@ public class FragmentSelecter {
 
 
             case R.id.user_interaction:
+<<<<<<< HEAD
                 title = "User Interaction";
+=======
+                title = "Send Emoji";
+>>>>>>> 6a06341ee2df2f62f8c6eeca66a5de7f86a32c3b
                 break;
 
             case R.id.settings:

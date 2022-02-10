@@ -23,7 +23,11 @@
 
         <item
             android:id="@+id/user_interaction"
+<<<<<<< HEAD
             android:title="User Interaction" />
+=======
+            android:title="Local Interaction" />
+>>>>>>> 6a06341ee2df2f62f8c6eeca66a5de7f86a32c3b
 
         <item
             android:id="@+id/settings"

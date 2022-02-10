@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"><![CDATA[
     android:layout_width="match_parent"
@@ -10,4 +11,18 @@
             android:summary="Will replace the developer information on Loomos screen with his Emoji functionality"
             android:title="Activate Emoji Frontend" />
 
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"><![CDATA[
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    ]]>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="emoji"
+            android:summary="Will replace the developer information on Loomos screen with his Emoji functionality"
+            android:title="Activate Emoji Frontend" />
+
+>>>>>>> 6a06341ee2df2f62f8c6eeca66a5de7f86a32c3b
     </PreferenceScreen>

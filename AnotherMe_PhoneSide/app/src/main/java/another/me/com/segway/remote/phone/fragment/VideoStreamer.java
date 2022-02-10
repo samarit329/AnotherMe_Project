@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import another.me.com.segway.remote.phone.R;
 import another.me.com.segway.remote.phone.fragment.base.RemoteFragment;
 import another.me.com.segway.remote.phone.service.ByteMessageReceiver;
+import another.me.com.segway.remote.phone.service.ConnectionService;
 import another.me.com.segway.remote.phone.util.CommandStringFactory;
 
 // Video streaming functionality class
