@@ -27,9 +27,11 @@ public class HeadControl extends JoyStickControllerFragment implements ByteMessa
     private JoystickView joyHeadYaw;
     Button stopH;
     Button startH;
-
+    Button recordvidH;
+    Button stopvidH;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
 
 
         View layout = inflater.inflate(R.layout.head_control, container, false);
@@ -69,6 +71,27 @@ public class HeadControl extends JoyStickControllerFragment implements ByteMessa
         });//end onClickListener
 
 
+        recordvidH=layout.findViewById(R.id.startRecordH);
+        recordvidH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                startRrcord();
+                //recordvid.setText("Stop");
+            }
+        });//end Listener
+        //end onClickListener
+
+
+
+        stopvidH=layout.findViewById(R.id.stopRecordH);
+        stopvidH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                stopRecord();
+                //recordvid.setText("Stop");
+            }
+        });//end Listener
+        //end onClickListener
 
 
         //send start stream video when enter the page
@@ -110,6 +133,18 @@ public class HeadControl extends JoyStickControllerFragment implements ByteMessa
         getLoomoService().registerByteMessageReceiver(this);
     }
 
+    public void startRrcord() {
+        Log.d(TAG, "sending record start");
+        String[] message = {"recordStart"};
+        getLoomoService().send(CommandStringFactory.getStringMessage(message));
+    }
+
+
+    public void stopRecord() {
+        Log.d(TAG, "sending record stop");
+        String[] message = {"recordStop"};
+        getLoomoService().send(CommandStringFactory.getStringMessage(message));
+    }
 
 
 

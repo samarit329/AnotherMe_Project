@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D8EFED"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/speech_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100px"
+        android:hint="Enter text"
+        android:textColorLink="#FFFFFF" />
+
+
+    <Button
+        android:id="@+id/sound_test"
+        android:layout_width="637dp"
+        android:layout_height="64dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="300px"
+        android:layout_marginTop="50px"
+        android:backgroundTint="#000000"
+        android:text="Send Sound"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>

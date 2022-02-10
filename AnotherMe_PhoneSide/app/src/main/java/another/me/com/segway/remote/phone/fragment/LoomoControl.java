@@ -33,10 +33,14 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
 
     Button stopF;
     Button startF;
-
-
+    Button recordvidF;
+    Button stopvidF;
+    Button MoveToUI;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
+
+
+
         View layout = inflater.inflate(R.layout.loomo_control, container, false);
         imageView = layout.findViewById(R.id.image_stream_l);
 
@@ -48,9 +52,13 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
 
 
 
+
         joySpeed.setOnMoveListener(MovementListenerFactory.getJoystickMoveListener(this, MovementListenerFactory.JOYSTICK_SPEED));
+
         joyDirection.setOnMoveListener(MovementListenerFactory.getJoystickMoveListener(this, MovementListenerFactory.JOYSTICK_DIRECTION));
+
         joyHeadPitch.setOnMoveListener(MovementListenerFactory.getJoystickMoveListener(this, MovementListenerFactory.JOYSTICK_PITCH));
+
         joyHeadYaw.setOnMoveListener(MovementListenerFactory.getJoystickMoveListener(this, MovementListenerFactory.JOYSTICK_YAW));
 
         joySpeed.setOnTouchListener(MovementListenerFactory.getJoyStickReleaseListener(this, MovementListenerFactory.JOYSTICK_SPEED));
@@ -76,10 +84,46 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
         startF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                startStreamF();
+            startStreamF();
+
             }
         });//end Listener
         //end onClickListener
+
+
+        recordvidF=layout.findViewById(R.id.startRecordF);
+        recordvidF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                startRrcord();
+                //recordvid.setText("Stop");
+            }
+        });//end Listener
+        //end onClickListener
+
+
+
+        stopvidF=layout.findViewById(R.id.stopRecordF);
+        stopvidF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                stopRecord();
+            }
+        });//end Listener
+        //end onClickListener
+
+
+        MoveToUI=layout.findViewById(R.id.Move_UI);
+        MoveToUI.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+
+                getFragmentManager().beginTransaction().replace(R.id.content_frame, new UserInteraction()).commit();
+                setTitle("User Interaction");
+            }
+        });//end Listener
+        //end onClickListener
+
 
         //send start stream video when enter the page
         Log.d(TAG, "sending vision start");
@@ -116,6 +160,26 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
         getLoomoService().send(CommandStringFactory.getStringMessage(message));
         getLoomoService().registerByteMessageReceiver(this);
     }
+
+
+
+    public void startRrcord() {
+        Log.d(TAG, "sending record start");
+        String[] message = {"recordStart"};
+        getLoomoService().send(CommandStringFactory.getStringMessage(message));
+    }
+
+
+    public void stopRecord() {
+        Log.d(TAG, "sending record stop");
+        String[] message = {"recordStop"};
+        getLoomoService().send(CommandStringFactory.getStringMessage(message));
+    }
+
+
+
+
+
 
     // Handle the received image and display it
     @Override

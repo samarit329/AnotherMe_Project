@@ -23,10 +23,13 @@ public class VideoStreamer extends RemoteFragment implements ByteMessageReceiver
     private ImageView imageView;
     Button stop;
     Button start;
+    Button recordvid;
+    Button stopvid;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
 
 
         View layout = inflater.inflate(R.layout.fragment_videostreamer, container, false);
@@ -41,7 +44,6 @@ public class VideoStreamer extends RemoteFragment implements ByteMessageReceiver
             }
         });//end Listener
 
-
         start=layout.findViewById(R.id.start);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +52,39 @@ public class VideoStreamer extends RemoteFragment implements ByteMessageReceiver
             }
         });//end Listener
 
-    // Start streaming
+
+
+        recordvid=layout.findViewById(R.id.startRecord);
+        recordvid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                startRrcord();
+                //recordvid.setText("Stop");
+            }
+        });//end Listener
+        //end onClickListener
+
+
+
+        stopvid=layout.findViewById(R.id.stopRecord);
+        stopvid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                stopRecord();
+                //recordvid.setText("Stop");
+            }
+        });//end Listener
+        //end onClickListener
+
+
+
+
+
+
+
+
+
+        // Start streaming
        Log.d(TAG, "sending vision start"); //DEBUG log message.
         String[] message = {"vision", "start"};// create start video stream message to send it to the robot
         getLoomoService().send(CommandStringFactory.getStringMessage(message));//Send the message to the robot
@@ -88,6 +122,19 @@ public class VideoStreamer extends RemoteFragment implements ByteMessageReceiver
         String[] message = {"vision", "start"};
         getLoomoService().send(CommandStringFactory.getStringMessage(message));
         getLoomoService().registerByteMessageReceiver(this);
+    }
+
+    public void startRrcord() {
+        Log.d(TAG, "sending record start");
+        String[] message = {"recordStart"};
+        getLoomoService().send(CommandStringFactory.getStringMessage(message));
+    }
+
+
+    public void stopRecord() {
+        Log.d(TAG, "sending record stop");
+        String[] message = {"recordStop"};
+        getLoomoService().send(CommandStringFactory.getStringMessage(message));
     }
 
     // Handle the received image and display it

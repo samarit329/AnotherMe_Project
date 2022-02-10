@@ -8,7 +8,10 @@ import another.me.com.segway.remote.phone.fragment.BodyControl;
 import another.me.com.segway.remote.phone.fragment.HeadControl;
 import another.me.com.segway.remote.phone.fragment.HomePage;
 import another.me.com.segway.remote.phone.fragment.LoomoControl;
+import another.me.com.segway.remote.phone.fragment.UserInteraction;
+import another.me.com.segway.remote.phone.fragment.EmojiController;
 import another.me.com.segway.remote.phone.fragment.VideoStreamer;
+//import another.me.com.segway.remote.phone.fragment.TextToSpeech;
 
 // This class for know what the user page selection by take the id from the xml and make new fragment form the selection class.
 
@@ -21,11 +24,11 @@ public class FragmentSelecter {
     public static RemoteFragmentInterface getFragment(Context context, int id) {
         RemoteFragmentInterface fragment;
         switch (id) {
-            case R.id.raw_control:
+            case R.id.Home:
                 fragment = new HomePage();
                 break;
 
-            case R.id.vision:
+            case R.id.video_stream:
                 fragment = new VideoStreamer();
                 break;
 
@@ -46,6 +49,15 @@ public class FragmentSelecter {
                 fragment= (RemoteFragmentInterface) new MainActivity();
                 break;
 
+
+            case R.id.user_interaction:
+                fragment = new UserInteraction();
+                break;
+
+            case R.id.settings:
+                fragment = new EmojiController();
+                break;
+
             default:
                 throw new IllegalArgumentException("Unknown Fragment ID");
         }
@@ -56,11 +68,11 @@ public class FragmentSelecter {
     private static String getTitleForFragmentId(Context context, int id) {
         String title;
         switch (id) {
-            case R.id.raw_control:
+            case R.id.Home:
                 title = context.getResources().getString(R.string.navigation_fragment_title_raw);
                 break;
 
-            case R.id.vision:
+            case R.id.video_stream:
                 title = context.getResources().getString(R.string.navigation_fragment_title_vision);
                 break;
 
@@ -71,13 +83,24 @@ public class FragmentSelecter {
             case R.id.body_control:
                 title = "Body Control";
                 break;
+
+
             case R.id.loomo_control:
                 title = "Loomo Control";
                 break;
+
             case R.id.backConnect:
                 title = "Back To Connect";
                 break;
 
+
+            case R.id.user_interaction:
+                title = "User Interaction";
+                break;
+
+            case R.id.settings:
+                title = "Settings";
+                break;
 
             default:
                 throw new IllegalArgumentException("Unknown Fragment ID");

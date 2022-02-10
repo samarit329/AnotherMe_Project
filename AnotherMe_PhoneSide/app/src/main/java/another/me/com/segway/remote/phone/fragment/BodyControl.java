@@ -12,7 +12,6 @@ import android.widget.ImageView;
 
 import another.me.com.segway.remote.phone.R;
 import another.me.com.segway.remote.phone.fragment.base.JoyStickControllerFragment;
-import another.me.com.segway.remote.phone.fragment.base.RemoteFragment;
 import another.me.com.segway.remote.phone.service.ByteMessageReceiver;
 import another.me.com.segway.remote.phone.util.CommandStringFactory;
 import another.me.com.segway.remote.phone.util.MovementListenerFactory;
@@ -28,8 +27,12 @@ public class BodyControl extends JoyStickControllerFragment implements ByteMessa
     private JoystickView joyDirection;
     Button stopB;
     Button startB;
+    Button recordvidB;
+    Button stopvidB;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
 
 
         View layout = inflater.inflate(R.layout.body_control, container, false);
@@ -65,6 +68,41 @@ public class BodyControl extends JoyStickControllerFragment implements ByteMessa
                 startStreamB();
             }
         });//end onClickListener
+
+
+
+        recordvidB=layout.findViewById(R.id.startRecordB);
+        recordvidB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                startRrcord();
+                //recordvid.setText("Stop");
+            }
+        });//end Listener
+        //end onClickListener
+
+
+
+        stopvidB=layout.findViewById(R.id.stopRecordB);
+        stopvidB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                stopRecord();
+                //recordvid.setText("Stop");
+            }
+        });//end Listener
+        //end onClickListener
+
+
+
+
+
+
+
+
+
+
+
 
 
         //send start stream video when enter the page
@@ -103,6 +141,29 @@ public class BodyControl extends JoyStickControllerFragment implements ByteMessa
         getLoomoService().send(CommandStringFactory.getStringMessage(message));
         getLoomoService().registerByteMessageReceiver(this);
     }
+
+
+
+    public void startRrcord() {
+        Log.d(TAG, "sending record start");
+        String[] message = {"recordStart"};
+        getLoomoService().send(CommandStringFactory.getStringMessage(message));
+    }
+
+
+    public void stopRecord() {
+        Log.d(TAG, "sending record stop");
+        String[] message = {"recordStop"};
+        getLoomoService().send(CommandStringFactory.getStringMessage(message));
+    }
+
+
+
+
+
+
+
+
 
 
     // Handle the received image and display it

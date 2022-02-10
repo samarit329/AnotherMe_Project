@@ -262,5 +262,17 @@ public class ConnectionService extends Service {
             Log.d(TAG, "MobileMessageRouter is not bount. Skipping unbind.");
         }
     }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //Text to speech function, send sound
+
+    public void sendSound(String speak) {
+        try {
+            Log.i(TAG, "Trying to say: " + speak);
+            String[] message = {"speak", speak};
+            messageConnection.sendMessage(CommandStringFactory.getStringMessage(message));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
