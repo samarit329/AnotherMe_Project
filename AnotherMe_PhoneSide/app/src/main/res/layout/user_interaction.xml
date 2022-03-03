@@ -1,372 +1,321 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D8EFED"
     android:orientation="vertical">
 
 
-
-    <EditText
-        android:id="@+id/speech_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100px"
-        android:hint="Enter text"
-        android:textColorLink="#FFFFFF"/>
-
-
-    <Button
-        android:id="@+id/sound_test"
-        android:layout_width="144dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="2000px"
-        android:layout_marginTop="50px"
-        android:backgroundTint="#0A0B0B"
-        android:text="Send"
-        android:textColor="#FFFFFF" />
-
-    <TextView
+    <!-- <TextView
         android:id="@+id/textView3"
-        android:layout_width="281dp"
+        android:layout_width="337dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/speech_input"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="50px"
-        android:layout_marginTop="40px"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="360dp"
+        android:layout_marginBottom="228dp"
         android:text="Emojis"
         android:textColor="#000000"
         android:textSize="24sp" />
+        -->
 
-    <LinearLayout
-        android:id="@+id/emoji_layout_1"
-        android:layout_width="725dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="500px"
-        android:layout_marginTop="0px">
+    <!--<Button
+        android:id="@+id/sound_test"
+        android:layout_width="123dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="2000px"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="220dp"
+        android:layout_marginBottom="278dp"
+        android:backgroundTint="#0A0B0B"
+        android:text="Send"
+        android:textColor="#FFFFFF" />
+        -->
 
-        <ImageButton
-            android:id="@+id/emoji_look_around"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+
+    <!--
+        <Button
+            android:id="@+id/sound_test"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginRight="60px"
-            android:background="@drawable/comf"
-            android:onClick="sendCommand"
-            android:tag="look_around"/>
-
-
-        <ImageButton
-            android:id="@+id/emoji_look_comfort"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginRight="200px"
-            android:background="@drawable/agreee"
-            android:onClick="sendCommand"
-            android:tag="look_comfort"/>
-
-
-        <ImageButton
-            android:id="@+id/emoji_look_curious"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="-150px"
-            android:layout_marginRight="200px"
-            android:background="@drawable/curiouss"
-            android:onClick="sendCommand"
-            android:tag="look_curious"/>
-
-        <ImageButton
-            android:id="@+id/emoji_look_no"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="-150px"
-            android:background="@drawable/disagreee"
-            android:onClick="sendCommand"
-            android:tag="look_no"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/emoji_layout_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="500px"
-        android:layout_marginTop="0px">
-
-        <ImageButton
-            android:id="@+id/emoji_look_up"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginRight="60px"
-            android:onClick="sendCommand"
-            android:tag="look_up"
-            android:background="@drawable/up"/>
-
-        <ImageButton
-            android:id="@+id/emoji_look_down"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginRight="200px"
-            android:onClick="sendCommand"
-            android:tag="look_down"
-            android:background="@drawable/downn"/>
-
-        <ImageButton
-            android:id="@+id/emoji_look_left"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="-150px"
-            android:layout_marginRight="200px"
-            android:onClick="sendCommand"
-            android:tag="look_left"
-            android:background="@drawable/leftg"/>
-
-        <ImageButton
-            android:id="@+id/emoji_look_right"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="-150px"
-            android:onClick="sendCommand"
-            android:tag="look_right"
-            android:background="@drawable/righttt"/>
-
-
-    </LinearLayout>
-
-
-=======
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#D8EFED"
-    android:orientation="vertical">
-
-
+            android:layout_marginStart="2000px"
+            android:layout_marginTop="50px"
+            android:backgroundTint="#0A0B0B"
+            android:text="Send"
+            android:textColor="#FFFFFF" />
+    -->
 
     <EditText
         android:id="@+id/speech_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100px"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="4dp"
         android:hint="Enter text"
         android:textColorLink="#FFFFFF" />
 
-
     <Button
         android:id="@+id/sound_test"
-        android:layout_width="144dp"
+        android:layout_width="115dp"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="2000px"
-        android:layout_marginTop="50px"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="461dp"
+        android:layout_marginLeft="1200px"
+        android:layout_marginBottom="192dp"
         android:backgroundTint="#0A0B0B"
         android:text="Send"
         android:textColor="#FFFFFF" />
-
-
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="281dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50px"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="72dp"
         android:layout_marginTop="40px"
+        android:layout_marginBottom="196dp"
         android:text="Emojis"
         android:textColor="#000000"
         android:textSize="24sp" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/emoji_layout_1"
-        android:layout_width="725dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="500px"
-        android:layout_marginTop="0px">
+        android:layout_width="751dp"
+        android:layout_height="108dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="0px"
+        android:layout_marginBottom="103dp">
 
-        <Button
-            android:id="@+id/emoji_look_around"
-            android:layout_width="120dp"
+
+        <TextView
+            android:id="@+id/disagree"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginRight="60px"
-            android:backgroundTint="#009688"
-            android:onClick="sendCommand"
-            android:tag="look_around"
-            android:text="Look Around"
-            android:textColor="#FFFFFF"
-
-            />
-
-
-        <Button
-            android:id="@+id/emoji_look_comfort"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginRight="200px"
-            android:backgroundTint="#009688"
-            android:onClick="sendCommand"
-            android:tag="look_comfort"
-            android:text="Agree"
-            android:textColor="#FFFFFF" />
-
-
-        <Button
-            android:id="@+id/emoji_look_curious"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="-150px"
-            android:layout_marginRight="200px"
-            android:backgroundTint="#009688"
-            android:onClick="sendCommand"
-            android:tag="look_curious"
-            android:text="Curious"
-            android:textColor="#FFFFFF" />
-
-        <Button
-            android:id="@+id/emoji_look_no"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="-150px"
-            android:backgroundTint="#009688"
-            android:onClick="sendCommand"
-            android:tag="look_no"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="193dp"
+            android:layout_marginBottom="9dp"
             android:text="Disagree"
-            android:textColor="#FFFFFF" />
-    </LinearLayout>
+            android:textColor="#000000" />
 
-    <LinearLayout
-        android:id="@+id/emoji_layout_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="500px"
-        android:layout_marginTop="0px">
-
-        <Button
-            android:id="@+id/emoji_look_up"
-            android:layout_width="120dp"
+        <TextView
+            android:id="@+id/curious"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="295dp"
+            android:layout_marginBottom="10dp"
+            android:text="Curious"
+            android:textColor="#000000" />
+
+        <ImageButton
+            android:id="@+id/emoji_look_around"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="468dp"
             android:layout_marginRight="60px"
-            android:backgroundTint="#009688"
+            android:layout_marginBottom="28dp"
+            android:background="@drawable/comf"
             android:onClick="sendCommand"
-            android:tag="look_up"
-            android:text="Look up"
-            android:textColor="#FFFFFF" />
+            android:tag="look_around" />
 
-        <Button
+        <ImageButton
+            android:id="@+id/emoji_look_comfort"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="377dp"
+            android:layout_marginRight="200px"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/agreee"
+            android:onClick="sendCommand"
+            android:tag="look_comfort" />
+
+        <ImageButton
+            android:id="@+id/emoji_look_curious"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="-150px"
+            android:layout_marginEnd="287dp"
+            android:layout_marginRight="200px"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/curiouss"
+            android:onClick="sendCommand"
+            android:tag="look_curious" />
+
+        <ImageButton
+            android:id="@+id/emoji_look_no"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="-150px"
+            android:layout_marginEnd="192dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/disagreee"
+            android:onClick="sendCommand"
+            android:tag="look_no" />
+
+        <TextView
+            android:id="@+id/Happy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="479dp"
+            android:layout_marginBottom="8dp"
+            android:text="Happy"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/agree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="390dp"
+            android:layout_marginBottom="11dp"
+            android:text="Agree"
+            android:textColor="#000000" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/emoji_layout_2"
+        android:layout_width="753dp"
+        android:layout_height="93dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginBottom="7dp">
+
+
+        <ImageButton
             android:id="@+id/emoji_look_down"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="286dp"
             android:layout_marginRight="200px"
-            android:backgroundTint="#009688"
+            android:layout_marginBottom="23dp"
+            android:background="@drawable/downn"
             android:onClick="sendCommand"
-            android:tag="look_down"
-            android:text="Look down"
-            android:textColor="#FFFFFF" />
+            android:tag="look_down" />
 
-        <Button
-            android:id="@+id/emoji_look_left"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="-150px"
-            android:layout_marginRight="200px"
-            android:backgroundTint="#009688"
+        <ImageButton
+            android:id="@+id/emoji_look_up"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="462dp"
+            android:layout_marginRight="60px"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/up"
             android:onClick="sendCommand"
-            android:tag="look_left"
-            android:text="Look left"
-            android:textColor="#FFFFFF" />
+            android:tag="look_up" />
 
-        <Button
+        <ImageButton
             android:id="@+id/emoji_look_right"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_marginLeft="-150px"
-            android:backgroundTint="#009688"
+            android:layout_marginEnd="379dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/righttt"
             android:onClick="sendCommand"
-            android:tag="look_right"
-            android:text="Look right"
-            android:textColor="#FFFFFF" />
+            android:tag="look_right" />
 
+        <ImageButton
+            android:id="@+id/emoji_look_left"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="302dp"
+            android:layout_marginLeft="-150px"
+            android:layout_marginEnd="191dp"
+            android:layout_marginRight="200px"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/leftg"
+            android:onClick="sendCommand"
+            android:tag="look_left" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/Lup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="469dp"
+            android:layout_marginBottom="0dp"
+            android:text="Look UP"
+            android:textColor="#000000" />
 
+        <TextView
+            android:id="@+id/lright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="381dp"
+            android:layout_marginBottom="3dp"
+            android:text="Look Right"
+            android:textColor="#000000" />
 
-    <LinearLayout
-        android:id="@+id/emoji_layout_3"
-        android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/ldown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="277dp"
+            android:layout_marginBottom="5dp"
+            android:text="Look Down"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/lleft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="181dp"
+            android:layout_marginBottom="5dp"
+            android:text="Look Left"
+            android:textColor="#000000" />
+
+    </RelativeLayout>
+<!--
+    <Button
+        android:id="@+id/sound_test"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="500px"
-        android:layout_marginTop="0px">
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="282dp"
+        android:layout_marginBottom="258dp"
+        android:backgroundTint="#0A0B0B"
+        android:text="Send"
+        android:textColor="#FFFFFF" />
+-->
 
-        <Button
-            android:id="@+id/emoji_turn_around"
-            android:layout_width="125dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginRight="45px"
-            android:backgroundTint="#009688"
-            android:onClick="sendCommand"
-            android:tag="turn_around"
-            android:text="Turn around"
-            android:textColor="#FFFFFF" />
-
-        <Button
-            android:id="@+id/emoji_turn_full"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginRight="200px"
-            android:backgroundTint="#009688"
-            android:onClick="sendCommand"
-            android:tag="turn_full"
-            android:text="Turn full"
-            android:textColor="#FFFFFF" />
-
-        <Button
-            android:id="@+id/emoji_turn_left"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="-150px"
-            android:layout_marginRight="200px"
-            android:backgroundTint="#009688"
-            android:onClick="sendCommand"
-            android:tag="turn_left"
-            android:text="Turn left"
-            android:textColor="#FFFFFF" />
-
-        <Button
-            android:id="@+id/emoji_turn_right"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="-150px"
-            android:backgroundTint="#009688"
-            android:onClick="sendCommand"
-            android:tag="turn_right"
-            android:text="Turn right"
-            android:textColor="#FFFFFF" />
-
-
-
-
-
-
-    </LinearLayout>
-
-
->>>>>>> 6a06341ee2df2f62f8c6eeca66a5de7f86a32c3b
-</LinearLayout>
+</RelativeLayout>

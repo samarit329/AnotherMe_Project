@@ -1,6 +1,7 @@
 package another.me.com.segway.remote.phone.fragment;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -12,9 +13,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import another.me.com.segway.remote.phone.R;
+import another.me.com.segway.remote.phone.SecondActivity;
 import another.me.com.segway.remote.phone.fragment.base.JoyStickControllerFragment;
 import another.me.com.segway.remote.phone.service.ByteMessageReceiver;
-import another.me.com.segway.remote.phone.service.ConnectionService;
 import another.me.com.segway.remote.phone.util.CommandStringFactory;
 import another.me.com.segway.remote.phone.util.MovementListenerFactory;
 import io.github.controlwear.virtual.joystick.android.JoystickView;
@@ -30,12 +31,15 @@ public class HeadControl extends JoyStickControllerFragment implements ByteMessa
     Button startH;
     Button recordvidH;
     Button stopvidH;
+    Button call;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
 
         View layout = inflater.inflate(R.layout.head_control, container, false);
+
         imageView = layout.findViewById(R.id.image_stream_h);
 
 
@@ -95,6 +99,18 @@ public class HeadControl extends JoyStickControllerFragment implements ByteMessa
         //end onClickListener
 
 
+
+
+        call = layout.findViewById(R.id.call);
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openNewActivity();
+            }
+        });
+
+
+
         //send start stream video when enter the page
        Log.d(TAG, "sending vision start");
         String[] message = {"vision", "start"};
@@ -103,6 +119,15 @@ public class HeadControl extends JoyStickControllerFragment implements ByteMessa
 
         return layout;
     }
+
+
+
+
+    public void openNewActivity(){
+        Intent intent = new Intent(getContext(), SecondActivity.class);
+        startActivity(intent);
+    }
+
 
 
     //stop strem
@@ -135,6 +160,8 @@ public class HeadControl extends JoyStickControllerFragment implements ByteMessa
     }
 
     public void startRrcord() {
+        stopvidH.setAlpha(1);
+        recordvidH.setAlpha(0);
         Log.d(TAG, "sending record start");
         String[] message = {"recordStart"};
         getLoomoService().send(CommandStringFactory.getStringMessage(message));
@@ -142,6 +169,8 @@ public class HeadControl extends JoyStickControllerFragment implements ByteMessa
 
 
     public void stopRecord() {
+        stopvidH.setAlpha(0);
+        recordvidH.setAlpha(1);
         Log.d(TAG, "sending record stop");
         String[] message = {"recordStop"};
         getLoomoService().send(CommandStringFactory.getStringMessage(message));

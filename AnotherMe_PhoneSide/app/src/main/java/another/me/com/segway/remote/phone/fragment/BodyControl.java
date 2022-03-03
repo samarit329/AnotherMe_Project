@@ -1,5 +1,6 @@
 package another.me.com.segway.remote.phone.fragment;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -11,9 +12,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import another.me.com.segway.remote.phone.R;
+import another.me.com.segway.remote.phone.SecondActivity;
 import another.me.com.segway.remote.phone.fragment.base.JoyStickControllerFragment;
 import another.me.com.segway.remote.phone.service.ByteMessageReceiver;
-import another.me.com.segway.remote.phone.service.ConnectionService;
 import another.me.com.segway.remote.phone.util.CommandStringFactory;
 import another.me.com.segway.remote.phone.util.MovementListenerFactory;
 import io.github.controlwear.virtual.joystick.android.JoystickView;
@@ -30,6 +31,8 @@ public class BodyControl extends JoyStickControllerFragment implements ByteMessa
     Button startB;
     Button recordvidB;
     Button stopvidB;
+
+    Button call;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -97,6 +100,13 @@ public class BodyControl extends JoyStickControllerFragment implements ByteMessa
 
 
 
+        call = layout.findViewById(R.id.call);
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openNewActivity();
+            }
+        });
 
 
 
@@ -115,6 +125,10 @@ public class BodyControl extends JoyStickControllerFragment implements ByteMessa
         return layout;
     }
 
+    public void openNewActivity(){
+        Intent intent = new Intent(getContext(), SecondActivity.class);
+        startActivity(intent);
+    }
 
     //stop strem
     @Override
@@ -146,6 +160,8 @@ public class BodyControl extends JoyStickControllerFragment implements ByteMessa
 
 
     public void startRrcord() {
+        stopvidB.setAlpha(1);
+        recordvidB.setAlpha(0);
         Log.d(TAG, "sending record start");
         String[] message = {"recordStart"};
         getLoomoService().send(CommandStringFactory.getStringMessage(message));
@@ -153,6 +169,8 @@ public class BodyControl extends JoyStickControllerFragment implements ByteMessa
 
 
     public void stopRecord() {
+        stopvidB.setAlpha(0);
+        recordvidB.setAlpha(1);
         Log.d(TAG, "sending record stop");
         String[] message = {"recordStop"};
         getLoomoService().send(CommandStringFactory.getStringMessage(message));

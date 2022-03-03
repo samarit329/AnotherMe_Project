@@ -4,6 +4,7 @@ import android.content.Context;
 
 import another.me.com.segway.remote.phone.MainActivity;
 import another.me.com.segway.remote.phone.R;
+//import another.me.com.segway.remote.phone.VideoChatViewActivity;
 import another.me.com.segway.remote.phone.fragment.BodyControl;
 import another.me.com.segway.remote.phone.fragment.HeadControl;
 import another.me.com.segway.remote.phone.fragment.HomePage;
@@ -54,9 +55,9 @@ public class FragmentSelecter {
                 fragment = new UserInteraction();
                 break;
 
-            case R.id.settings:
-                fragment = new EmojiController();
-                break;
+
+
+
 
             default:
                 throw new IllegalArgumentException("Unknown Fragment ID");
@@ -95,16 +96,12 @@ public class FragmentSelecter {
 
 
             case R.id.user_interaction:
-<<<<<<< HEAD
                 title = "User Interaction";
-=======
-                title = "Send Emoji";
->>>>>>> 6a06341ee2df2f62f8c6eeca66a5de7f86a32c3b
                 break;
 
-            case R.id.settings:
-                title = "Settings";
-                break;
+
+
+
 
             default:
                 throw new IllegalArgumentException("Unknown Fragment ID");
