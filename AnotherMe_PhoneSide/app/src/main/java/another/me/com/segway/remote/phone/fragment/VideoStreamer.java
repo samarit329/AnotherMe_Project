@@ -1,20 +1,36 @@
 package another.me.com.segway.remote.phone.fragment;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import another.me.com.segway.remote.phone.MainActivity;
 import another.me.com.segway.remote.phone.R;
+import another.me.com.segway.remote.phone.SecondActivity;
 import another.me.com.segway.remote.phone.fragment.base.RemoteFragment;
 import another.me.com.segway.remote.phone.service.ByteMessageReceiver;
-import another.me.com.segway.remote.phone.service.ConnectionService;
 import another.me.com.segway.remote.phone.util.CommandStringFactory;
+import io.agora.rtc.Constants;
+import io.agora.rtc.IRtcEngineEventHandler;
+import io.agora.rtc.RtcEngine;
+import io.agora.rtc.video.VideoCanvas;
+
 
 // Video streaming functionality class
 
@@ -26,6 +42,11 @@ public class VideoStreamer extends RemoteFragment implements ByteMessageReceiver
     Button start;
     Button recordvid;
     Button stopvid;
+    Button call;
+
+SecondActivity vcall;
+
+
 
 
     @Override
@@ -66,7 +87,6 @@ public class VideoStreamer extends RemoteFragment implements ByteMessageReceiver
         //end onClickListener
 
 
-
         stopvid=layout.findViewById(R.id.stopRecord);
         stopvid.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,12 +95,17 @@ public class VideoStreamer extends RemoteFragment implements ByteMessageReceiver
                 //recordvid.setText("Stop");
             }
         });//end Listener
-        //end onClickListener
 
 
 
 
-
+        call = layout.findViewById(R.id.call);
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openNewActivity();
+            }
+        });
 
 
 
@@ -93,6 +118,21 @@ public class VideoStreamer extends RemoteFragment implements ByteMessageReceiver
 
         return layout;
     } // end onCreateView
+
+
+
+
+
+    public void openNewActivity(){
+        Intent intent = new Intent(getContext(), SecondActivity.class);
+        startActivity(intent);
+    }
+
+
+
+
+
+
 
 
     // Stop streaming
@@ -126,6 +166,8 @@ public class VideoStreamer extends RemoteFragment implements ByteMessageReceiver
     }
 
     public void startRrcord() {
+        stopvid.setAlpha(1);
+        recordvid.setAlpha(0);
         Log.d(TAG, "sending record start");
         String[] message = {"recordStart"};
         getLoomoService().send(CommandStringFactory.getStringMessage(message));
@@ -133,6 +175,8 @@ public class VideoStreamer extends RemoteFragment implements ByteMessageReceiver
 
 
     public void stopRecord() {
+        stopvid.setAlpha(0);
+        recordvid.setAlpha(1);
         Log.d(TAG, "sending record stop");
         String[] message = {"recordStop"};
         getLoomoService().send(CommandStringFactory.getStringMessage(message));
@@ -141,16 +185,20 @@ public class VideoStreamer extends RemoteFragment implements ByteMessageReceiver
     // Handle the received image and display it
   @Override
     public void handleByteMessage(final byte[] message) {
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Bitmap bitmap = BitmapFactory.decodeByteArray(message, 0, message.length);
-                imageView.setImageBitmap(bitmap);
+      getActivity().runOnUiThread(new Runnable() {
+          @Override
+          public void run() {
+              Bitmap bitmap = BitmapFactory.decodeByteArray(message, 0, message.length);
+              imageView.setImageBitmap(bitmap);
 
-            }
-        });
-    }
+          }
+      });
+  }
 
 
-    }// end videoStreamer
+
+
+
+
+}// end videoStreamer
 

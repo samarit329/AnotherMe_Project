@@ -1,20 +1,34 @@
 package another.me.com.segway.remote.phone;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
+import android.graphics.PorterDuff;
 import android.os.IBinder;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.SurfaceView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import another.me.com.segway.remote.phone.service.ConnectionCallback;
 import another.me.com.segway.remote.phone.service.ConnectionService;
+import io.agora.rtc.Constants;
+import io.agora.rtc.IRtcEngineEventHandler;
+import io.agora.rtc.RtcEngine;
+import io.agora.rtc.video.VideoCanvas;
 
 public class MainActivity extends AppCompatActivity implements ConnectionCallback {
 
@@ -24,14 +38,25 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
     private EditText ipAddress;
 
 
+    private static final String LOG_TAG = another.me.com.segway.remote.phone.MainActivity.class.getSimpleName();
+    private static final int PERMISSION_REQ_ID_RECORD_AUDIO = 22;
+    private static final int PERMISSION_REQ_ID_CAMERA = PERMISSION_REQ_ID_RECORD_AUDIO + 1;
+    public RtcEngine mRtcEngine;
+
+
+
+
+
+
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect);
         ipAddress = (EditText) findViewById(R.id.ip_input);
-
     }// end on create
+
+
 
 
     @Override
@@ -52,6 +77,10 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
         super.onDestroy();
         connectionService.unregisterCallback(this);
         unbindService(serviceConnection);
+
+
+
+
     }
 
 
@@ -114,6 +143,23 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
         Intent intent = new Intent(this, NavigationActivity.class);
         startActivity(intent);
     }
+
+
+    public boolean checkSelfPermission(String permission, int requestCode) {
+        Log.i(LOG_TAG, "checkSelfPermission " + permission + " " + requestCode);
+        if (ContextCompat.checkSelfPermission(this,
+                permission)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{permission},
+                    requestCode);
+            return false;
+        }
+        return true;
+    }
+
+
 
 
 }//end class

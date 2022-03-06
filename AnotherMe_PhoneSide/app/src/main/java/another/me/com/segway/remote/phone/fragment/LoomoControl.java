@@ -1,6 +1,7 @@
 package another.me.com.segway.remote.phone.fragment;
 
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -13,9 +14,9 @@ import android.widget.ImageView;
 
 
 import another.me.com.segway.remote.phone.R;
+import another.me.com.segway.remote.phone.SecondActivity;
 import another.me.com.segway.remote.phone.fragment.base.JoyStickControllerFragment;
 import another.me.com.segway.remote.phone.service.ByteMessageReceiver;
-import another.me.com.segway.remote.phone.service.ConnectionService;
 import another.me.com.segway.remote.phone.util.CommandStringFactory;
 import another.me.com.segway.remote.phone.util.MovementListenerFactory;
 
@@ -37,19 +38,13 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
     Button recordvidF;
     Button stopvidF;
     Button MoveToUI;
+    Button call;
+
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
 
 
 
-<<<<<<< HEAD
-=======
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-
-
->>>>>>> 6a06341ee2df2f62f8c6eeca66a5de7f86a32c3b
         View layout = inflater.inflate(R.layout.loomo_control, container, false);
         imageView = layout.findViewById(R.id.image_stream_l);
 
@@ -131,8 +126,15 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
                 setTitle("User Interaction");
             }
         });//end Listener
-        //end onClickListener
 
+
+        call = layout.findViewById(R.id.call);
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openNewActivity();
+            }
+        });
 
         //send start stream video when enter the page
         Log.d(TAG, "sending vision start");
@@ -141,6 +143,14 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
         getLoomoService().registerByteMessageReceiver(this);
 
         return layout;
+    }
+
+
+
+
+    public void openNewActivity(){
+        Intent intent = new Intent(getContext(), SecondActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -164,6 +174,7 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
     }
     // start stream method for the start button
     public void startStreamF() {
+
         Log.d(TAG, "sending vision start");
         String[] message = {"vision", "start"};
         getLoomoService().send(CommandStringFactory.getStringMessage(message));
@@ -173,6 +184,8 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
 
 
     public void startRrcord() {
+        stopvidF.setAlpha(1);
+        recordvidF.setAlpha(0);
         Log.d(TAG, "sending record start");
         String[] message = {"recordStart"};
         getLoomoService().send(CommandStringFactory.getStringMessage(message));
@@ -180,6 +193,8 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
 
 
     public void stopRecord() {
+        stopvidF.setAlpha(0);
+        recordvidF.setAlpha(1);
         Log.d(TAG, "sending record stop");
         String[] message = {"recordStop"};
         getLoomoService().send(CommandStringFactory.getStringMessage(message));
