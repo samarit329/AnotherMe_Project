@@ -3,14 +3,15 @@
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:costom="http://schemas.android.com/tools"
     android:background="#D8EFED"
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/image_stream_b"
+        android:id="@+id/image_stream_h"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#D8EFED" />
+        android:background="#D8EFED"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,84 +19,84 @@
 
 
         <io.github.controlwear.virtual.joystick.android.JoystickView
-            android:id="@+id/stream_joy_speed"
+            android:id="@+id/joystick_head_pitch"
             android:layout_width="150dp"
             android:layout_height="140dp"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="1dp"
-            android:layout_marginLeft="1dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginBottom="1dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="7dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/linearrow1"
             custom:JV_borderColor="#A6434545"
             custom:JV_borderWidth="2dp"
             custom:JV_buttonColor="#A6434545"
-            custom:JV_buttonImage="@drawable/b_letter"
+            custom:JV_buttonImage="@drawable/h_letter"
             custom:JV_fixedCenter="true" />
 
         <io.github.controlwear.virtual.joystick.android.JoystickView
-            android:id="@+id/stream_joy_direction"
+            android:id="@+id/joystick_head_yaw"
             android:layout_width="150dp"
             android:layout_height="140dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginRight="1dp"
-            android:layout_marginBottom="1dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="577dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/linearrow"
             custom:JV_borderColor="#A6434545"
             custom:JV_borderWidth="2dp"
             custom:JV_buttonColor="#A6434545"
-            custom:JV_buttonImage="@drawable/b_letter"
+            custom:JV_buttonImage="@drawable/h_letter"
             custom:JV_fixedCenter="true" />
 
 
         <Button
-            android:id="@+id/stopB"
+            android:id="@+id/stopH"
             android:layout_width="66dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="175dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginStart="134dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/yyyy"
             android:text="Stop" />
 
         <Button
-            android:id="@+id/startB"
+            android:id="@+id/startH"
             android:layout_width="56dp"
             android:layout_height="45dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="390dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginStart="344dp"
+            android:layout_marginBottom="22dp"
             android:background="@drawable/xxxxx"
             android:text="Start" />
 
         <Button
-            android:id="@+id/startRecordB"
+            android:id="@+id/startRecordH"
             android:layout_width="60dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="322dp"
+            android:layout_marginStart="278dp"
             android:layout_marginTop="-68dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="17dp"
             android:background="@drawable/recordsto" />
 
         <Button
-            android:id="@+id/stopRecordB"
+            android:id="@+id/stopRecordH"
             android:layout_width="60dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="248dp"
+            android:layout_marginStart="211dp"
             android:layout_marginTop="111dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="19dp"
             android:background="@drawable/recordsta" />
 
         <Button
@@ -104,9 +105,10 @@
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="262dp"
-            android:layout_marginTop="19dp"
+            android:layout_marginStart="246dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/call_icon" />
+
 
     </RelativeLayout>
 

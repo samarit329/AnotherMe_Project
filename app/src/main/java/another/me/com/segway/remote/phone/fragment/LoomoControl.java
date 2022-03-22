@@ -146,6 +146,8 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
     }
 
 
+
+
     public void openNewActivity(){
         Intent intent = new Intent(getContext(), SecondActivity.class);
         startActivity(intent);
