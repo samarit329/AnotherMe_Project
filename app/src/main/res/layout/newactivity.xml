@@ -63,6 +63,14 @@
                 android:src="@drawable/btn_switch_camera" />
 
             <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:onClick="onLocalAudioMuteClicked"
+                android:scaleType="centerInside"
+                android:src="@drawable/btn_mute" />
+
+            <ImageView
                 android:id="@+id/BACK"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

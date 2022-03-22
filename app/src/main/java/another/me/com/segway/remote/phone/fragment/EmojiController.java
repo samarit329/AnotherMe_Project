@@ -30,6 +30,15 @@ public class EmojiController extends PreferenceFragment implements SharedPrefere
         addPreferencesFromResource(R.xml.preference);
     }
 
+
+    // send emoje message to the robot.
+    public void toggleEmoji(boolean enabled) {
+        Log.d(TAG, "toggleEmoji called with " + enabled); //DEBUG log message.
+        // create emoji setteing message to send it to the robot.
+        String[] message = {"settings", KEY_EMOJI, String.valueOf(enabled)};
+        ConnectionService.getInstance().send(CommandStringFactory.getStringMessage(message)); //send the message to the robot.
+    }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -50,20 +59,12 @@ public class EmojiController extends PreferenceFragment implements SharedPrefere
         boolean enabled;
         switch (key) {
 
-
+            // enable to send emoje to the robot
             case KEY_EMOJI:
                 enabled = sharedPreferences.getBoolean(key, false);
                 this.toggleEmoji(enabled);
                 break;
         }
-    }
-
-
-
-    public void toggleEmoji(boolean enabled) {
-        Log.d(TAG, "toggleEmoji called with " + enabled);
-        String[] message = {"settings", KEY_EMOJI, String.valueOf(enabled)};
-        ConnectionService.getInstance().send(CommandStringFactory.getStringMessage(message));
     }
 
 
