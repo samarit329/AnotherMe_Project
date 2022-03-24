@@ -1,0 +1,8 @@
+<resources>
+        <string name="app_name">Another Me</string>
+
+        <string name="btnCapture">Record</string>
+
+        <string name="need_camera_permissions">This app needs the WRITE_EXTERNAL_STORAGE, RECORD_AUDIO
+        and CAMERA permissions to capture video from the camera.</string>
+</resources>
