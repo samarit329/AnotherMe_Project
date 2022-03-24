@@ -165,6 +165,8 @@ SecondActivity vcall;
         getLoomoService().registerByteMessageReceiver(this);
     }
 
+
+    //start record 
     public void startRrcord() {
         stopvid.setAlpha(1);
         recordvid.setAlpha(0);

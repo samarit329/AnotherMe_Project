@@ -1,6 +1,5 @@
 package another.me.com.segway.remote.phone.fragment;
 
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -12,91 +11,72 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
-
 import another.me.com.segway.remote.phone.R;
 import another.me.com.segway.remote.phone.SecondActivity;
 import another.me.com.segway.remote.phone.fragment.base.JoyStickControllerFragment;
 import another.me.com.segway.remote.phone.service.ByteMessageReceiver;
 import another.me.com.segway.remote.phone.util.CommandStringFactory;
 import another.me.com.segway.remote.phone.util.MovementListenerFactory;
-
 import io.github.controlwear.virtual.joystick.android.JoystickView;
 
-public class LoomoControl extends JoyStickControllerFragment implements ByteMessageReceiver{
+public class BodyControl extends JoyStickControllerFragment implements ByteMessageReceiver  {
+
 
     private static final String TAG = "VisionFragment";
 
     private ImageView imageView;
-
     private JoystickView joySpeed;
     private JoystickView joyDirection;
-    private JoystickView joyHeadPitch;
-    private JoystickView joyHeadYaw;
+    Button stopB;
+    Button startB;
+    Button recordvidB;
+    Button stopvidB;
 
-    Button stopF;
-    Button startF;
-    Button recordvidF;
-    Button stopvidF;
-    Button MoveToUI;
     Button call;
 
     @Override
-    public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
 
-        View layout = inflater.inflate(R.layout.loomo_control, container, false);
-        imageView = layout.findViewById(R.id.image_stream_l);
-
-        joySpeed = layout.findViewById(R.id.stream_joy_speed_l);
-        joyDirection = layout.findViewById(R.id.stream_joy_direction_l);
-
-        joyHeadPitch = layout.findViewById(R.id.stream_joy_head_pitch_l);
-        joyHeadYaw = layout.findViewById(R.id.stream_joy_head_yaw_l);
+        View layout = inflater.inflate(R.layout.body_control, container, false);
+        imageView = layout.findViewById(R.id.image_stream_b);
 
 
-
+        joySpeed = layout.findViewById(R.id.stream_joy_speed);
+        joyDirection = layout.findViewById(R.id.stream_joy_direction);
 
         joySpeed.setOnMoveListener(MovementListenerFactory.getJoystickMoveListener(this, MovementListenerFactory.JOYSTICK_SPEED));
-
         joyDirection.setOnMoveListener(MovementListenerFactory.getJoystickMoveListener(this, MovementListenerFactory.JOYSTICK_DIRECTION));
-
-        joyHeadPitch.setOnMoveListener(MovementListenerFactory.getJoystickMoveListener(this, MovementListenerFactory.JOYSTICK_PITCH));
-
-        joyHeadYaw.setOnMoveListener(MovementListenerFactory.getJoystickMoveListener(this, MovementListenerFactory.JOYSTICK_YAW));
 
         joySpeed.setOnTouchListener(MovementListenerFactory.getJoyStickReleaseListener(this, MovementListenerFactory.JOYSTICK_SPEED));
         joyDirection.setOnTouchListener(MovementListenerFactory.getJoyStickReleaseListener(this, MovementListenerFactory.JOYSTICK_DIRECTION));
-        joyHeadPitch.setOnTouchListener(MovementListenerFactory.getJoyStickReleaseListener(this, MovementListenerFactory.JOYSTICK_PITCH));
-        joyHeadYaw.setOnTouchListener(MovementListenerFactory.getJoyStickReleaseListener(this, MovementListenerFactory.JOYSTICK_YAW));
-
 
 
 
         // Stop stream button
-        stopF=layout.findViewById(R.id.stopF);
-        stopF.setOnClickListener(new View.OnClickListener() {
+        stopB=layout.findViewById(R.id.stopB);
+        stopB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                stopStreamF();
+                stopStreamB();
             }
-        });//end Listener
-       //end onClickListener
+        });//end onClickListener
+
 
         //Start stream button
-        startF=layout.findViewById(R.id.startF);
-        startF.setOnClickListener(new View.OnClickListener() {
+        startB=layout.findViewById(R.id.startB);
+        startB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-            startStreamF();
-
+                startStreamB();
             }
-        });//end Listener
-        //end onClickListener
+        });//end onClickListener
 
 
-        recordvidF=layout.findViewById(R.id.startRecordF);
-        recordvidF.setOnClickListener(new View.OnClickListener() {
+
+        recordvidB=layout.findViewById(R.id.startRecordB);
+        recordvidB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
                 startRrcord();
@@ -107,25 +87,17 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
 
 
 
-        stopvidF=layout.findViewById(R.id.stopRecordF);
-        stopvidF.setOnClickListener(new View.OnClickListener() {
+        stopvidB=layout.findViewById(R.id.stopRecordB);
+        stopvidB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
                 stopRecord();
+                //recordvid.setText("Stop");
             }
         });//end Listener
         //end onClickListener
 
 
-        MoveToUI=layout.findViewById(R.id.Move_UI);
-        MoveToUI.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-
-                getFragmentManager().beginTransaction().replace(R.id.content_frame, new UserInteraction()).commit();
-                setTitle("User Interaction");
-            }
-        });//end Listener
 
 
         call = layout.findViewById(R.id.call);
@@ -136,6 +108,14 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
             }
         });
 
+
+
+
+
+
+
+
+
         //send start stream video when enter the page
         Log.d(TAG, "sending vision start");
         String[] message = {"vision", "start"};
@@ -145,36 +125,32 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
         return layout;
     }
 
-
-
-
     public void openNewActivity(){
         Intent intent = new Intent(getContext(), SecondActivity.class);
         startActivity(intent);
     }
 
+    //stop strem
     @Override
-    //stop stream
     public void onPause() {
         super.onPause();
         Log.d(TAG, "sending vision stop");
         getLoomoService().unregisterByteMessageReceiver(this);
-        String[] message = {"vision", "stop"};
-        getLoomoService().send(CommandStringFactory.getStringMessage(message));
+        String[] messageh = {"vision", "stop"};
+        getLoomoService().send(CommandStringFactory.getStringMessage(messageh));
     }
 
-
     // stop stream method for the stop button
-    public void stopStreamF(){
+    public void stopStreamB(){
 
         Log.d(TAG, "sending vision stop");
         getLoomoService().unregisterByteMessageReceiver(this);
         String[] message = {"vision", "end"};
         getLoomoService().send(CommandStringFactory.getStringMessage(message));
     }
-    // start stream method for the start button
-    public void startStreamF() {
 
+    // start stream mehod for the start button
+    public void startStreamB() {
         Log.d(TAG, "sending vision start");
         String[] message = {"vision", "start"};
         getLoomoService().send(CommandStringFactory.getStringMessage(message));
@@ -184,8 +160,8 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
 
 
     public void startRrcord() {
-        stopvidF.setAlpha(1);
-        recordvidF.setAlpha(0);
+        stopvidB.setAlpha(1);
+        recordvidB.setAlpha(0);
         Log.d(TAG, "sending record start");
         String[] message = {"recordStart"};
         getLoomoService().send(CommandStringFactory.getStringMessage(message));
@@ -193,12 +169,16 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
 
 
     public void stopRecord() {
-        stopvidF.setAlpha(0);
-        recordvidF.setAlpha(1);
+        stopvidB.setAlpha(0);
+        recordvidB.setAlpha(1);
         Log.d(TAG, "sending record stop");
         String[] message = {"recordStop"};
         getLoomoService().send(CommandStringFactory.getStringMessage(message));
     }
+
+
+
+
 
 
 
@@ -215,6 +195,5 @@ public class LoomoControl extends JoyStickControllerFragment implements ByteMess
                 imageView.setImageBitmap(bitmap);
             }
         });
-    }
-
-}
+    }//end method
+}// end class
