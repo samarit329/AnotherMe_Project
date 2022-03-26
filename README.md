@@ -33,7 +33,7 @@ Prerequisites:
 Installing:
 
 - Clone the git repo into your designated folder.
-- Open the project with Android Studio
+- Open the the whole project with Android Studio
 - Connect the two Android phones via cable 
 - Connect the Loomo robot via USB 
 - Deploy the three apps on the two Android phones and the Loomo robot .
