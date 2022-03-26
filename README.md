@@ -1,7 +1,7 @@
 # AnotherMe Project
 
 
-Includes three projects:
+Includes three applications:
 Phone side,
 Robot side,
 ,and Mounted Mobile side which will be mounted on the robot and used as camera sensor.
