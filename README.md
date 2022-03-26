@@ -1,11 +1,11 @@
 # AnotherMe Project
 
 
-includes three projects:
+Includes three projects:
 Phone side,
 Robot side,
 ,and Mounted Mobile side which will be mounted on the robot and used as camera sensor.
-This project developed using Java and C++ languages
+This project developed using Java and C++ programming languages
 
 
 # Usage: 
