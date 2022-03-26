@@ -38,7 +38,7 @@ Installing:
 - Clone the git repo into your designated folder.
 - Open the the whole project with Android Studio
 - Connect the two Android phones via cable 
-- Deploy the AnotherMePhone to one phone and AnotherMeMounted to the another phoen.
+- Deploy the AnotherMePhone to one phone and AnotherMeMounted to the another phone.
 - Connect the Loomo robot via USB 
 - Deploy the AnotherMeRobot to Loomo robot .
 
