@@ -2,9 +2,9 @@
 
 
 includes three projects:
-Phone side..
-Robot side..
-Mounted Mobile side..which will be mounted on the robot and used as camera sensor
+Phone side,
+Robot side,
+,and Mounted Mobile side which will be mounted on the robot and used as camera sensor.
 This project developed using Java and C++ languages
 
 
