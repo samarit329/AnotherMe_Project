@@ -109,6 +109,7 @@ public class ConnectivityService {
             mainActivity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+
                     Toast.makeText(mainActivity, "disconnected to: " + mMessageConnection.getName(), Toast.LENGTH_SHORT).show();
                 }
             });
@@ -124,7 +125,6 @@ public class ConnectivityService {
 
     public void disconnect() {
         //Unbind from the connection service.
-
         this.mMessageRouter.unbindService();
     }
 }// end class ConnectivityService
