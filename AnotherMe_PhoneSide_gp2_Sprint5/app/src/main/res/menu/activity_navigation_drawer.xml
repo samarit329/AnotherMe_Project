@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/Home"
+            android:title="Home" />
+        <item
+            android:id="@+id/loomo_control"
+            android:title="Full Control" />
+
+        <item
+            android:id="@+id/video_stream"
+            android:title="Video Stream" />
+
+        <item
+            android:id="@+id/head_control"
+            android:title="Head Control" />
+
+        <item
+            android:id="@+id/body_control"
+            android:title="Body Control" />
+
+        <item
+            android:id="@+id/user_interaction"
+            android:title="Local Interaction" />
+
+
+
+        <item
+            android:id="@+id/backConnect"
+            android:title="Back To Connect" />
+
+        <item
+            android:id="@+id/logout"
+            android:title="Exit" />
+
+
+
+    </group>
+
+</menu>
