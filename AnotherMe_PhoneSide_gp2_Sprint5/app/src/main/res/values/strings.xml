@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Another Me</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="head_fragment_mode_button_smooth">Smooth</string>
+    <string name="head_fragment_mode_button_orientation">Orientation</string>
+
+
+    <string name="navigation_fragment_title_raw">Home</string>
+
+    <string name="navigation_fragment_title_vision">Video Stream</string>
+    <string name="navigation_fragment_title_head">Head Control</string>
+    <string name="navigation_fragment_title_tts">Text to Speech</string>
+    <string name="navigation_fragment_title_emoji">Emojis</string>
+    <string name="navigation_fragment_title_settings">Settings</string>
+    <string name="navigation_fragment_title_videoCall">Video Call</string>
+
+    <string name="agora_app_id">41cb752a5f774f6d8d026066b26c83b5</string>
+
+
+</resources>
