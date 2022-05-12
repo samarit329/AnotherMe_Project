@@ -1,3 +1,0 @@
-include ':vitamio'
-include ':app'
-rootProject.name='AnotherMe_RobotSide'
