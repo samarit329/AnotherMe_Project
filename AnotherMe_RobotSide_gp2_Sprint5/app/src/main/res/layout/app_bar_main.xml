@@ -29,6 +29,4 @@
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@drawable/backbutton"/>
 
-
-
 </android.support.design.widget.CoordinatorLayout>

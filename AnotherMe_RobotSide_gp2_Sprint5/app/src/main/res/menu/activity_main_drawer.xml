@@ -8,8 +8,6 @@
             android:id="@+id/nav_videos"
             android:title="@string/nav_local_videos" />
 
-
-
     </group>
 
 
